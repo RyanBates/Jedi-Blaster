@@ -9,10 +9,10 @@ public class Shooting : MonoBehaviour
 
     void Update()
     { 
-        if (Input.GetButtonDown(KeyCode.Space))
-        {
-            shoot = true;
-        }
+        //if (Input.GetButtonDown(KeyCode.Space))
+        //{
+        //    shoot = true;
+        //}
 
     }
 }
