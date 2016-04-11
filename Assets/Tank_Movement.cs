@@ -2,15 +2,18 @@
 
 public class Tank_Movement : MonoBehaviour
 {
-    public float TopSpeed = 4;
+    public float TopSpeed = 8;
 
     void Update()
     {
         float v = Input.GetAxis("Vertical") * TopSpeed;
         float h = Input.GetAxis("Horizontal") * TopSpeed;
 
-        gameObject.transform.position += transform.forward * (v * (.9f * Time.deltaTime));
+        gameObject.transform.position += transform.forward * (v * (2 * Time.deltaTime));
         
-        gameObject.transform.localPosition = new Vector3(transform.localPosition.x,0f,transform.localPosition.z);
+        gameObject.transform.localEulerAngles =
+            new Vector3(0f, transform.localEulerAngles.y + ((h * TopSpeed) * Time.deltaTime), 0f);
+
+        transform.Rotate(Vector3.forward, (TopSpeed * h) * Time.deltaTime);
     }
 }
